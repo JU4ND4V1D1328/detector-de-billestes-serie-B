@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validador de Billetes Bolivia - Serie B</title>
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@4/dist/tesseract.min.js"></script>
+    <style>
+        body { font-family: sans-serif; text-align: center; background: #f4f4f4; padding: 20px; }
+        #video-container { position: relative; width: 100%; max-width: 500px; margin: auto; border: 5px solid #333; border-radius: 10px; overflow: hidden; }
+        video { width: 100%; display: block; }
+        .overlay { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); border: 2px dashed yellow; width: 80%; height: 30%; pointer-events: none; }
+        #resultado { margin-top: 20px; padding: 15px; border-radius: 8px; font-weight: bold; font-size: 1.2rem; }
+        .valido { background-color: #d4edda; color: #155724; }
+        .invalido { background-color: #f8d7da; color: #721c24; }
+        button { background: #007bff; color: white; border: none; padding: 15px 30px; font-size: 1rem; border-radius: 5px; cursor: pointer; margin-top: 10px; }
+    </style>
+</head>
+<body>
+
+    <h2>Analizador de Billetes (BCB)</h2>
+    <p>Ubica el número de serie dentro del recuadro amarillo</p>
+
+    <div id="video-container">
+        <video id="camera" autoplay playsinline></video>
+        <div class="overlay"></div>
+    </div>
+
+    <button id="btn-scan">ESCANEAR SERIE</button>
+
+    <div id="resultado">Esperando escaneo...</div>
+
+    <canvas id="snapshot" style="display:none;"></canvas>
+
+    <script src="app.js"></script>
+</body>
+</html>
